@@ -27,10 +27,15 @@
     .muted { color:var(--muted); }
     .nav-link { color:#adbed1; font-size:.85rem; font-weight:600; transition:.25s; padding:8px 0; border-bottom:1px solid transparent; }
     .nav-link:hover,.nav-link.active { color:#fff; border-color:var(--cyan); }
-    .social-link,.social-card { display:inline-flex; align-items:center; justify-content:center; gap:8px; color:#b8dced; font-weight:700; transition:.25s; }
-    .social-link { font-size:.85rem; }
-    .social-card { min-height:58px; border:1px solid rgba(128,184,227,.2); border-radius:12px; background:rgba(12,25,43,.55); padding:14px 16px; font-size:.9rem; }
+    .social-link,.social-card { display:inline-flex; align-items:center; color:#b8dced; font-weight:700; transition:.25s; }
+    .social-link { font-size:.85rem; gap:8px; }
+    .social-card { min-height:64px; gap:12px; border:1px solid rgba(128,184,227,.2); border-radius:12px; background:rgba(12,25,43,.55); padding:14px 16px; text-align:left; }
+    .social-card .social-icon { flex-shrink:0; color:var(--cyan); }
+    .social-card .social-text { display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .social-card .social-title { font-size:.78rem; font-weight:700; color:#dff5ff; letter-spacing:.03em; }
+    .social-card .social-value { font-size:.82rem; font-weight:500; color:#9fc3da; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .social-link:hover,.social-card:hover { color:#fff; border-color:rgba(99,220,255,.65); text-shadow:0 0 16px rgba(99,220,255,.35); box-shadow:0 0 22px rgba(29,143,255,.12); }
+    .social-card:hover .social-value { color:#dff5ff; }
     a:focus-visible,button:focus-visible { outline:2px solid var(--cyan); outline-offset:3px; }
     .network-canvas { position:absolute; inset:0; pointer-events:none; overflow:hidden; opacity:.9; }
     .network-canvas svg { width:100%; height:100%; }
@@ -61,6 +66,7 @@
     .project-visual:before { content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(100,220,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(100,220,255,.10) 1px,transparent 1px);background-size:23px 23px; }
     .project-visual .wire { position:absolute;height:1px;background:#56d5fb;opacity:.75;transform-origin:left; }
     .project-visual .dot { position:absolute;width:10px;height:10px;background:#08223a;border:2px solid #75e0ff;border-radius:50%;box-shadow:0 0 12px #36bcf3; }
+    .project-visual .project-icon { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:rgba(99,220,255,.5); z-index:1; }
     .project-card .project-extra { max-height:0; opacity:0; overflow:hidden; transition:.3s; }
     .project-card.is-expanded .project-extra { max-height:90px; opacity:1; margin-top:12px; }
     .project-link { color:#8ce6ff; font-weight:700; font-size:.9rem; display:inline-flex; align-items:center; gap:6px; }
@@ -91,12 +97,12 @@
           <span class="text-base font-bold" style="letter-spacing:.08rem;">AMR MARAIEF</span>
         </a>
         <div class="hidden items-center gap-6 md:flex">
-          <a class="nav-link" href="#about">About</a><a class="nav-link" href="#skills">Skills</a><a class="nav-link" href="#projects">Projects</a><a class="nav-link" href="#certifications">Certifications</a><a class="nav-link" href="#journey">Journey</a><a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#about">About</a><a class="nav-link" href="#services">Services</a><a class="nav-link" href="#skills">Skills</a><a class="nav-link" href="#projects">Projects</a><a class="nav-link" href="#certifications">Certifications</a><a class="nav-link" href="#contact">Contact</a>
         </div>
         <button id="menuButton" class="rounded-md border border-sky-200/20 p-2 text-cyan-200 md:hidden" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu" width="19" height="19"></i></button>
       </nav>
       <div id="mobileMenu" class="mobile-menu mx-5 mb-4 flex-col gap-1 rounded-xl border border-sky-200/15 bg-[#0b1b2e] p-3">
-        <a class="nav-link" href="#about">About</a><a class="nav-link" href="#skills">Skills</a><a class="nav-link" href="#projects">Projects</a><a class="nav-link" href="#certifications">Certifications</a><a class="nav-link" href="#journey">Journey</a><a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" href="#about">About</a><a class="nav-link" href="#services">Services</a><a class="nav-link" href="#skills">Skills</a><a class="nav-link" href="#projects">Projects</a><a class="nav-link" href="#certifications">Certifications</a><a class="nav-link" href="#contact">Contact</a>
       </div>
     </header>
 
@@ -128,6 +134,10 @@
                 <div class="flex flex-wrap items-center gap-4 border-l border-sky-200/15 pl-4" aria-label="Social and contact links">
                   <a class="social-link" href="https://www.linkedin.com/in/amr-maraief-42b446248/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin" width="15" height="15"></i>LinkedIn</a>
                   <a class="social-link" href="https://github.com/amr-022" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github" width="15" height="15"></i>GitHub</a>
+                  <a class="social-link" href="https://wa.me/201152740205" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8.2 19.6L3 21z"/><path d="M8.5 9.8c.2 2.4 3 5.2 5.4 5.4.9.1 1.9-.5 2.2-1.3l.1-.3c.1-.3 0-.6-.2-.8l-1.7-1.3c-.3-.2-.6-.2-.9 0l-.6.5c-1-.5-1.9-1.4-2.4-2.4l.5-.6c.2-.3.2-.6 0-.9L9.6 6.4c-.2-.2-.5-.3-.8-.2l-.3.1c-.8.3-1.4 1.3-1.3 2.2z"/></svg>
+                    WhatsApp
+                  </a>
                   <a class="social-link" href="mailto:amromo039@gmail.com" aria-label="Email Me"><i data-lucide="mail" width="15" height="15"></i>Email Me</a>
                 </div>
               </div>
@@ -153,9 +163,7 @@
             <div>
               <p class="whitespace-pre-line text-lg leading-8 text-slate-300">I am a Computer &amp; Control Engineering student at El Shorouk Academy (graduating 2027) with a strong interest in Cybersecurity, Networking, Linux, Windows Server, and IT infrastructure.
 
-I enjoy learning through hands-on labs and real-world technical projects, especially in penetration testing, network security, Active Directory, and system administration. I also lead a seven-person team on our graduation project.
-
-My goal is to continuously develop my technical skills and build a career in cybersecurity and offensive security.</p>
+I enjoy learning through hands-on labs and real-world technical projects, especially in penetration testing, network security, Active Directory, and system administration. I also lead a seven-person team on our graduation project.</p>
               <div class="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div class="glass rounded-xl p-4"><i data-lucide="shield-check" class="mb-3 text-cyan-300" width="20"></i><p class="text-sm font-bold">Cybersecurity</p></div>
                 <div class="glass rounded-xl p-4"><i data-lucide="network" class="mb-3 text-cyan-300" width="20"></i><p class="text-sm font-bold">Networking</p></div>
@@ -172,6 +180,46 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="dnode" style="top:72%;left:39%"></div>
               <div class="dnode" style="top:19%;left:63%"></div>
               <div class="absolute bottom-5 left-5 rounded-lg border border-cyan-200/20 bg-[#091a2e]/80 px-4 py-3 text-xs tracking-[.15em] text-cyan-100">SECURE / CONNECTED / READY</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="reveal">
+        <div class="section-wrap">
+          <p class="eyebrow">Services</p>
+          <h2 class="section-title mt-3 text-3xl sm:text-5xl">What I can help you with.</h2>
+          <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="glass rounded-2xl p-6">
+              <i data-lucide="network" class="mb-4 text-cyan-300" width="26"></i>
+              <h3 class="text-lg font-bold">Network Design &amp; Configuration</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">VLANs, routing/switching, DHCP, OSPF, and EtherChannel — planned and configured for small to mid-size networks.</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+              <i data-lucide="shield" class="mb-4 text-cyan-300" width="26"></i>
+              <h3 class="text-lg font-bold">Firewall &amp; Network Security Setup</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">FortiGate firewall configuration, security policies, and DMZ design to protect your network perimeter.</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+              <i data-lucide="bug" class="mb-4 text-cyan-300" width="26"></i>
+              <h3 class="text-lg font-bold">Penetration Testing &amp; Vulnerability Assessment</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">Identifying and reporting security weaknesses in networks and systems using industry-standard tools.</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+              <i data-lucide="server" class="mb-4 text-cyan-300" width="26"></i>
+              <h3 class="text-lg font-bold">Windows Server &amp; Active Directory</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">Domain services setup, organizational units, Group Policy, and file server administration.</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+              <i data-lucide="wrench" class="mb-4 text-cyan-300" width="26"></i>
+              <h3 class="text-lg font-bold">IT Support &amp; Troubleshooting</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">Diagnosing and resolving network, system, and connectivity issues for individuals and small businesses.</p>
+            </div>
+            <div class="glass rounded-2xl p-6">
+              <i data-lucide="terminal" class="mb-4 text-cyan-300" width="26"></i>
+              <h3 class="text-lg font-bold">Security Automation Scripts</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-300">Python tools for reconnaissance and network scanning tasks, tailored to your workflow.</p>
             </div>
           </div>
         </div>
@@ -220,6 +268,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
                   <span class="wire" style="width:48%;top:62%;left:30%;transform:rotate(-30deg)"></span>
                   <span class="wire" style="width:40%;top:40%;left:52%;transform:rotate(60deg)"></span>
                   <span class="dot" style="top:26%;left:13%"></span><span class="dot" style="top:44%;left:70%"></span><span class="dot" style="top:70%;left:44%"></span><span class="dot" style="top:20%;left:58%"></span>
+                  <i data-lucide="shield-alert" class="project-icon" width="52" height="52"></i>
                 </div>
                 <div class="p-6 sm:p-8">
                   <p class="eyebrow mb-2">Graduation Project</p>
@@ -239,6 +288,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="project-visual">
                 <span class="wire" style="width:74%;top:46%;left:15%;transform:rotate(-13deg)"></span><span class="wire" style="width:43%;top:23%;left:38%;transform:rotate(55deg)"></span>
                 <span class="dot" style="top:43%;left:14%"></span><span class="dot" style="top:27%;left:52%"></span><span class="dot" style="top:28%;left:79%"></span>
+                <i data-lucide="terminal" class="project-icon" width="44" height="44"></i>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-bold">NetProbe</h3>
@@ -254,6 +304,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="project-visual">
                 <span class="wire" style="width:70%;top:35%;left:12%;transform:rotate(20deg)"></span><span class="wire" style="width:48%;top:66%;left:35%;transform:rotate(-31deg)"></span>
                 <span class="dot" style="top:28%;left:12%"></span><span class="dot" style="top:49%;left:74%"></span><span class="dot" style="top:72%;left:48%"></span>
+                <i data-lucide="building-2" class="project-icon" width="44" height="44"></i>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-bold">Hotel Network Infrastructure</h3>
@@ -270,6 +321,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="project-visual">
                 <span class="wire" style="width:60%;top:30%;left:20%;transform:rotate(0deg)"></span><span class="wire" style="width:50%;top:66%;left:28%;transform:rotate(-55deg)"></span>
                 <span class="dot" style="top:27%;left:18%"></span><span class="dot" style="top:27%;left:74%"></span><span class="dot" style="top:71%;left:54%"></span>
+                <i data-lucide="server" class="project-icon" width="44" height="44"></i>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-bold">Active Directory Infrastructure</h3>
@@ -286,6 +338,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="project-visual">
                 <span class="wire" style="width:55%;top:38%;left:18%;transform:rotate(28deg)"></span><span class="wire" style="width:42%;top:65%;left:46%;transform:rotate(-55deg)"></span>
                 <span class="dot" style="top:35%;left:16%"></span><span class="dot" style="top:59%;left:62%"></span><span class="dot" style="top:22%;left:74%"></span>
+                <i data-lucide="shield" class="project-icon" width="44" height="44"></i>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-bold">FortiGate Network Security</h3>
@@ -302,6 +355,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="project-visual">
                 <span class="wire" style="width:65%;top:34%;left:13%;transform:rotate(25deg)"></span><span class="wire" style="width:47%;top:70%;left:24%;transform:rotate(-46deg)"></span>
                 <span class="dot" style="top:29%;left:10%"></span><span class="dot" style="top:55%;left:67%"></span><span class="dot" style="top:73%;left:37%"></span>
+                <i data-lucide="bug" class="project-icon" width="44" height="44"></i>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-bold">Penetration Testing Labs</h3>
@@ -318,6 +372,7 @@ My goal is to continuously develop my technical skills and build a career in cyb
               <div class="project-visual">
                 <span class="wire" style="width:60%;top:38%;left:19%;transform:rotate(-35deg)"></span><span class="wire" style="width:49%;top:28%;left:46%;transform:rotate(72deg)"></span>
                 <span class="dot" style="top:61%;left:18%"></span><span class="dot" style="top:19%;left:58%"></span><span class="dot" style="top:66%;left:75%"></span>
+                <i data-lucide="satellite" class="project-icon" width="44" height="44"></i>
               </div>
               <div class="p-5">
                 <h3 class="text-xl font-bold">EGSA Space Key</h3>
@@ -339,56 +394,14 @@ My goal is to continuously develop my technical skills and build a career in cyb
           <p class="eyebrow">Certifications</p>
           <h2 class="section-title mt-3 text-3xl sm:text-5xl">Security and networking learning paths.</h2>
           <div class="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">ITI — Cybersecurity Track</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">ITI — CCNA: Introduction to Networks</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">ITI — CCNA: Routing and Switching</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">Huawei — HCCDA Tech Essential: Cloud Computing</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">Huawei — HCIA-AI V3.5</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">Fortinet — FortiGate FCA</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">Sprints — Cybersecurity Fundamentals</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">Network Fundamentals</p></div>
-            <div class="cert-card glass rounded-xl p-5"><p class="font-semibold">HTML</p></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- JOURNEY -->
-      <section id="journey" class="reveal">
-        <div class="section-wrap">
-          <p class="eyebrow">Training &amp; Experience</p>
-          <h2 class="section-title mt-3 text-3xl sm:text-5xl">A journey of technical exposure.</h2>
-          <div class="timeline relative mt-10 max-w-3xl space-y-6">
-            <div class="timeline-item">ITI Cybersecurity Training</div>
-            <div class="timeline-item">NTI Cybersecurity Training</div>
-            <div class="timeline-item">NTI IT Technical Support Training</div>
-            <div class="timeline-item">Arab Organization for Industrialization — Electronics Factory Training</div>
-            <div class="timeline-item">Egyptian Space Agency — Space Key Project</div>
-            <div class="timeline-item">Huawei Technical Training</div>
-            <div class="timeline-item">AAIB Bank IT Training</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- EXPLORING + ECPC -->
-      <section class="reveal">
-        <div class="section-wrap">
-          <div class="glass relative overflow-hidden rounded-2xl p-7 sm:p-10" style="background:linear-gradient(135deg,rgb(16,44,72),rgb(11,23,39))">
-            <div class="network-canvas" aria-hidden="true">
-              <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" fill="none">
-                <path d="M100 250L330 95L540 210L770 80L1100 260" stroke="#56d5fb" stroke-opacity=".25"></path>
-                <circle class="node" cx="330" cy="95" r="6" fill="#6de0ff"></circle><circle class="node" cx="540" cy="210" r="6" fill="#6de0ff"></circle><circle class="node" cx="770" cy="80" r="6" fill="#8af2c8"></circle>
-              </svg>
-            </div>
-            <div class="relative">
-              <h2 class="text-2xl font-bold sm:text-3xl" style="letter-spacing:.06rem;">CURRENTLY EXPLORING</h2>
-              <div class="mt-7 flex flex-wrap gap-3">
-                <span class="tag rounded-full px-4 py-2">Cybersecurity</span><span class="tag rounded-full px-4 py-2">Penetration Testing</span><span class="tag rounded-full px-4 py-2">Web Security</span><span class="tag rounded-full px-4 py-2">Red Teaming</span><span class="tag rounded-full px-4 py-2">Network Security</span><span class="tag rounded-full px-4 py-2">Active Directory Security</span><span class="tag rounded-full px-4 py-2">Linux</span><span class="tag rounded-full px-4 py-2">IT Infrastructure</span>
-              </div>
-            </div>
-          </div>
-          <div class="glass mt-6 rounded-2xl p-7">
-            <p class="text-lg font-bold text-cyan-200">ECPC Participant</p>
-            <p class="mt-3 max-w-2xl leading-7 text-slate-300">Participated in the Egyptian Collegiate Programming Contest as my first step into competitive programming.</p>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">ITI — Cybersecurity Track</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2026</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">ITI — CCNA: Introduction to Networks</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2026</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">ITI — CCNA: Routing and Switching</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2026</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">Huawei — HCCDA Tech Essential: Cloud Computing</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2026</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">Huawei — HCIA-AI V3.5</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2025</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">Fortinet — FortiGate FCA</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2025</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">Sprints — Cybersecurity Fundamentals</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2025</span></div>
+            <div class="cert-card glass rounded-xl p-5 flex items-center justify-between gap-3"><p class="font-semibold">Network Fundamentals</p><span class="tag rounded-full px-2 py-1 text-xs shrink-0">2025</span></div>
           </div>
         </div>
       </section>
@@ -400,10 +413,23 @@ My goal is to continuously develop my technical skills and build a career in cyb
             <p class="eyebrow">Contact</p>
             <h2 class="section-title mt-3 text-3xl sm:text-5xl">Let's Connect</h2>
             <p class="mx-auto mt-5 max-w-xl leading-7 text-slate-300">Interested in cybersecurity, networking, or technical collaboration? Feel free to get in touch.</p>
-            <div class="mx-auto mt-9 grid max-w-2xl gap-3 sm:grid-cols-3">
-              <a class="social-card" href="https://www.linkedin.com/in/amr-maraief-42b446248/" target="_blank" rel="noopener noreferrer" aria-label="Open Amr Maraief on LinkedIn"><i data-lucide="linkedin" width="18" height="18"></i>LinkedIn</a>
-              <a class="social-card" href="https://github.com/amr-022" target="_blank" rel="noopener noreferrer" aria-label="Open Amr Maraief on GitHub"><i data-lucide="github" width="18" height="18"></i>GitHub</a>
-              <a class="social-card" href="mailto:amromo039@gmail.com" aria-label="Email Amr Maraief"><i data-lucide="mail" width="18" height="18"></i>Email Me</a>
+            <div class="mx-auto mt-9 grid max-w-3xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <a class="social-card rounded-xl" href="https://www.linkedin.com/in/amr-maraief-42b446248/" target="_blank" rel="noopener noreferrer" aria-label="Open Amr Maraief on LinkedIn">
+                <i data-lucide="linkedin" class="social-icon" width="20" height="20"></i>
+                <span class="social-text"><span class="social-title">LinkedIn</span><span class="social-value">amr-maraief</span></span>
+              </a>
+              <a class="social-card rounded-xl" href="https://github.com/amr-022" target="_blank" rel="noopener noreferrer" aria-label="Open Amr Maraief on GitHub">
+                <i data-lucide="github" class="social-icon" width="20" height="20"></i>
+                <span class="social-text"><span class="social-title">GitHub</span><span class="social-value">amr-022</span></span>
+              </a>
+              <a class="social-card rounded-xl" href="https://wa.me/201152740205" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Amr Maraief">
+                <svg class="social-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8.2 19.6L3 21z"/><path d="M8.5 9.8c.2 2.4 3 5.2 5.4 5.4.9.1 1.9-.5 2.2-1.3l.1-.3c.1-.3 0-.6-.2-.8l-1.7-1.3c-.3-.2-.6-.2-.9 0l-.6.5c-1-.5-1.9-1.4-2.4-2.4l.5-.6c.2-.3.2-.6 0-.9L9.6 6.4c-.2-.2-.5-.3-.8-.2l-.3.1c-.8.3-1.4 1.3-1.3 2.2z"/></svg>
+                <span class="social-text"><span class="social-title">WhatsApp</span><span class="social-value">+20 115 274 0205</span></span>
+              </a>
+              <a class="social-card rounded-xl" href="mailto:amromo039@gmail.com" aria-label="Email Amr Maraief">
+                <i data-lucide="mail" class="social-icon" width="20" height="20"></i>
+                <span class="social-text"><span class="social-title">Email</span><span class="social-value">amromo039@gmail.com</span></span>
+              </a>
             </div>
           </div>
         </div>
@@ -419,6 +445,10 @@ My goal is to continuously develop my technical skills and build a career in cyb
         <div class="flex flex-wrap items-center justify-center gap-4">
           <a class="social-link" href="https://www.linkedin.com/in/amr-maraief-42b446248/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin" width="14" height="14"></i>LinkedIn</a>
           <a class="social-link" href="https://github.com/amr-022" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i data-lucide="github" width="14" height="14"></i>GitHub</a>
+          <a class="social-link" href="https://wa.me/201152740205" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8.2 19.6L3 21z"/><path d="M8.5 9.8c.2 2.4 3 5.2 5.4 5.4.9.1 1.9-.5 2.2-1.3l.1-.3c.1-.3 0-.6-.2-.8l-1.7-1.3c-.3-.2-.6-.2-.9 0l-.6.5c-1-.5-1.9-1.4-2.4-2.4l.5-.6c.2-.3.2-.6 0-.9L9.6 6.4c-.2-.2-.5-.3-.8-.2l-.3.1c-.8.3-1.4 1.3-1.3 2.2z"/></svg>
+            WhatsApp
+          </a>
           <a class="social-link" href="mailto:amromo039@gmail.com" aria-label="Email Me"><i data-lucide="mail" width="14" height="14"></i>Email Me</a>
         </div>
         <p class="text-xs text-slate-500">© 2026 Amr Maraief. All rights reserved.</p>
